@@ -1,0 +1,188 @@
+getgenv().autoTap = false
+getgenv().autoEdit = false
+getgenv().autoBest = false
+getgenv().muteMusic = false
+getgenv().openEggs = false
+
+
+local Speed = game.Players.LocalPlayer.Character.Humanoid.WalkSpeed == 75
+
+
+function doTap()
+spawn(function()
+    while getgenv().autoTap == true do
+game:GetService("ReplicatedStorage").Holder.Events.useDevice:FireServer()
+        wait()
+    end
+
+    end)
+end
+
+function autoEdit()
+spawn(function()
+    while getgenv().autoEdit == true do
+game:GetService("ReplicatedStorage").Holder.Events.useComputer:FireServer()
+        wait()
+    end
+end)
+end
+
+function autoBest()
+    spawn(function()
+        while getgenv().autoBest == true do
+            game:GetService("ReplicatedStorage").Holder.Events.workers.equipB:FireServer()
+            wait()
+        end
+    end)
+end
+
+
+function muteMusic()
+    while getgenv().muteMusic ==  true do
+        game:GetService("Workspace").Holder.music.Lobby.Volume = 0
+        game:GetService("Workspace").Holder.music.Shop.Volume = 0
+        game:GetService("Workspace").Holder.music.Intro.Volume = 0
+        game:GetService("Workspace").Holder.music.secret.Volume = 0
+        return
+    end
+end
+
+
+
+
+
+
+local library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/AikaV3rm/UiLib/master/Lib.lua')))()
+
+local w = library:CreateWindow("Developer Simulator") -- Creates the window
+
+local b = w:CreateFolder("Main Functions")
+
+local d = w:CreateFolder("Teleports")
+
+local c = w:CreateFolder("Misc")
+
+b:Label("Made By YourWaifuAstolfo#6809",{
+    TextSize = 15; -- Self Explaining
+    TextColor = Color3.fromRGB(255,255,255); -- Self Explaining
+    BgColor = Color3.fromRGB(69,69,69); -- Self Explaining
+    
+ }) 
+b:DestroyGui()
+
+
+b:Toggle("Click",function(bool)
+    getgenv().autoTap = bool
+    if bool then
+        doTap()
+    end
+end)
+
+
+b:Toggle("Edit",function(bool)
+    getgenv().autoEdit = bool
+    if bool then
+        autoEdit()
+    end
+end)
+
+b:Toggle("Equip Best",function(bool)
+    getgenv().autoBest = bool
+    if bool then
+        autoBest()
+    end
+end) 
+
+ c:Button("Mute Music",function()
+        game:GetService("Workspace").Holder.ambience.Volume = 0
+        game:GetService("Workspace").Holder.music.Lobby.Volume = 0
+        game:GetService("Workspace").Holder.music.Shop.Volume = 0
+        game:GetService("Workspace").Holder.music.Intro.Volume = 0
+        game:GetService("Workspace").Holder.music.secret.Volume = 0      
+    end)
+
+
+
+c:Toggle("Speed",function(bool)
+        Speed = bool
+        if Speed ==  true then
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 50
+        else
+            game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+        end
+    end)
+
+
+
+
+d:Button("Studio",function()
+    local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+local location = CFrame.new(-2222, 43, 865)
+pl.CFrame = location
+end)
+d:Button("Store",function()
+local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+local location = CFrame.new(-1983, 55, 744)
+pl.CFrame = location
+end)
+
+d:Button("HQ",function()
+    local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+    local location = CFrame.new(-2123, 69, 1024)
+    pl.CFrame = location
+    end)
+
+    d:Button("Dumpster Area (Secret)",function()
+        local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+        local location = CFrame.new(-20, 3, -852)
+        pl.CFrame = location
+        end)
+
+     d:Button("Russo (Secret)",function()
+         local pl = game.Players.LocalPlayer.Character.HumanoidRootPart
+         local location = CFrame.new(-2243, 42, 586)
+         pl.CFrame = location
+         end)
+
+
+-- b:Label("Pretty Useless NGL",{
+--     TextSize = 25; -- Self Explaining
+--     TextColor = Color3.fromRGB(255,255,255); -- Self Explaining
+--     BgColor = Color3.fromRGB(69,69,69); -- Self Explaining
+    
+-- }) 
+
+-- b:Button("Button",function()
+--     print("Elym Winning")
+-- end)
+
+-- b:Toggle("Toggle",function(bool)
+--     shared.toggle = bool
+--     print(shared.toggle)
+-- end)
+
+-- b:Slider("Slider",{
+--     min = 10; -- min value of the slider
+--     max = 50; -- max value of the slider
+--     precise = true; -- max 2 decimals
+-- },function(value)
+--     print(value)
+-- end)
+
+-- b:Dropdown("Dropdown",{"A","B","C"},true,function(mob) --true/false, replaces the current title "Dropdown" with the option that t
+--     print(mob)
+-- end)
+
+-- b:Bind("Bind",Enum.KeyCode.C,function() --Default bind
+--     print("Yes")
+-- end)
+
+-- b:ColorPicker("ColorPicker",Color3.fromRGB(255,0,0),function(color) --Default color
+--     print(color)
+-- end)
+
+-- b:Box("Box","number",function(value) -- "number" or "string"
+--     print(value)
+-- end)
+
+-- b:Destroy
